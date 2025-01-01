@@ -558,8 +558,19 @@ function getIndicesOfOddNumbers(numbers) {
  *    getHexRGBValues([ 0, 255, 16777215]) => [ '#000000', '#0000FF', '#FFFFFF' ]
  *    getHexRGBValues([]) => []
  */
-function getHexRGBValues(/* arr */) {
-  throw new Error('Not implemented');
+function getHexRGBValues(arr) {
+  return arr.map((element, index) => {
+    let result;
+    if (index === 0) {
+      result = `#${element.toString(16) + 0}0000`;
+    } else if (index === 1) {
+      result = `#0000${element.toString(16).toUpperCase()}`;
+    } else if (index === 2) {
+      result = `#${element.toString(16).toUpperCase()}`;
+    }
+
+    return result;
+  });
 }
 
 /**
